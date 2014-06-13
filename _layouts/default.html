@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+    <head>
+        <link rel="stylesheet" href="{{site.url}}/assets/css/style.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{site.url}}/assets/css/syntax.css" type="text/css" media="all" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>{{ page.title }}</title>
+
+        <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+    </head>
+
+    <body>
+        <div class="page">
+            <header>
+                <div class="title"><a href={{site.url}}>{{site.title}}</a></div>
+                <ul>
+                    {% for page in site.pages %}
+                        {% if page.navigation == true %}
+                            <li><a href={{site.url}}/{{page.url}}>{{page.title}}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </header>
+
+            <div id="content">
+                {{content}}
+            </div>
+
+            <footer>
+                Copyright © {{ site.time | date: "%Y" }} Kasza Péter. All Rights Reserved.
+            </footer>
+        </div>
+    </body>
+</html>
+
